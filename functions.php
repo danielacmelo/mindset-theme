@@ -48,7 +48,7 @@ function fwd_setup() {
 
     // Custom image Crop Sizes 
     add_image_size( 'portrait-blog', 200, 250, true );
-    add_image_size( 'portrait-blog-crop', 400, 200, true );
+    add_image_size( 'landscape-blog', 400, 200, true );
 
 
 	// This theme uses wp_nav_menu() in one location.
