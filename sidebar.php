@@ -7,15 +7,17 @@
  * @package FWD_Starter_Theme
  */
 
-if ( ! is_active_sidebar( 'sidebar-1' )  && ! is_active_sidebar( 'sidebar-2' ) ) {
+if ( ! is_active_sidebar( 'sidebar-1' )  || ! is_active_sidebar( 'sidebar-2' ) ) {
 	return;
 }
 ?>
 
 <aside id="secondary" class="widget-area">
-    <?php if ( is_page() && is_active_sidebar( 'sidebar-2' ) ) : ?>
-        <?php dynamic_sidebar( 'sidebar-2' ); ?>
-    <?php else : ?>
-        <?php dynamic_sidebar( 'sidebar-1' ); ?>    
-	<?php endif; ?>
+    <?php
+    if ( is_page() ) {
+        dynamic_sidebar( 'sidebar-2' ); 
+    } else {
+        dynamic_sidebar( 'sidebar-1' ); 
+    }
+    ?>
 </aside><!-- #secondary -->
