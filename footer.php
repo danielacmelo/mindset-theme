@@ -24,7 +24,7 @@
             </nav>		
 		</div><!-- .footer-menus -->
 		<div class="site-info">
-            <a class="privacy-policy-link" href="<?php echo esc_url( get_permalink( 'id=3' ) ); ?>"><?php esc_html_e( 'Privacy Policy' ); ?></a>
+            <a class="privacy-policy-link" href="<?php echo esc_url( get_permalink( '3' ) ); ?>"><?php esc_html_e( 'Privacy Policy' ); ?></a>
             <br>
 	        <?php esc_html_e( 'Created by ', 'fwd' ); ?><a href="<?php echo esc_url( __( 'https://wp.bcitwebdeveloper.ca/', 'fwd' ) ); ?>"><?php esc_html_e( 'Jonathon Leathers', 'fwd' ); ?></a>
 		</div><!-- .site-info -->
