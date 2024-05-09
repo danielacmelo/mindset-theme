@@ -225,7 +225,7 @@ add_filter( 'excerpt_more', 'fwd_excerpt_more' );
 // Remove Block Editor from Pages/Posts
 function fwd_post_filter( $use_block_editor, $post ) {
     // Add IDs to the array
-    $page_ids = array( 146 );
+    $page_ids = array( 146 , 7 );
     if ( in_array( $post->ID, $page_ids ) ) {
         return false;
     } else {
