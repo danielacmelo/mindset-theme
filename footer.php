@@ -13,8 +13,13 @@
 
 	<footer id="colophon" class="site-footer">
 		<div class="footer-contact">
+            <?php if (!is_page(17)) : ?>
+                <p><?php the_field('physical_address', 17); ?></p>
+                <p><?php the_field('email', 17); ?></p>
+            <?php endif; ?>
 			
 		</div><!-- .footer-contact -->
+
 		<div class="footer-menus">
             <nav id="footer-navigation" class="footer-navigation">
                 <?php wp_nav_menu( array( 'theme_location' => 'footer-left') ); ?>

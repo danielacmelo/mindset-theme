@@ -19,7 +19,18 @@
 	<div class="entry-content">
 		<?php
 		the_content();
-
+        if ( function_exists ( 'get_field' ) ) {
+            if ( get_field( 'physical_address' ) ) {
+                echo '<p>';
+                the_field( 'physical_address' );
+                echo '</p>'; 
+            }
+            if ( get_field( 'email' ) ) {
+                echo '<p>';
+                the_field( 'email' );
+                echo '</p>';
+            }
+        } 
 		wp_link_pages(
 			array(
 				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'fwd' ),
