@@ -221,3 +221,15 @@ function fwd_excerpt_more( $more ) {
     return $more;
 }
 add_filter( 'excerpt_more', 'fwd_excerpt_more' );
+
+// Remove Block Editor from Pages/Posts
+function fwd_post_filter( $use_block_editor, $post ) {
+    // Add IDs to the array
+    $page_ids = array( 146 );
+    if ( in_array( $post->ID, $page_ids ) ) {
+        return false;
+    } else {
+        return $use_block_editor;
+    }
+}
+add_filter( 'use_block_editor_for_post', 'fwd_post_filter', 10, 2 );
