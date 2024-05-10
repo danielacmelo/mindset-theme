@@ -24,11 +24,11 @@ get_header();
             <?php
             $args = array(
                 'post_type' => 'fwd_work',
-                'posts_per_page' => -1,
+                'posts_per_page' => -1
             );
             $query = new WP_Query( $args );
             if ( $query -> have_posts() ) {
-                while ( $query -> have_post() ) {
+                while ( $query -> have_posts() ) {
                     $query -> the_post();
                     ?>
                     <article>
@@ -36,11 +36,11 @@ get_header();
                         <h2><?php the_title(); ?></h2>
                         <?php the_post_thumbnail( 'large'); ?>  
                         </a>
-                    <p><?php the_excerpt(); ?></p>
+                        <p><?php the_excerpt(); ?></p>
                     </article>
                     <?php
                 }
-             wp_reset_postdata();             
+                wp_reset_postdata();             
             }
             ?>	
             
