@@ -19,24 +19,27 @@
 	<div class="entry-content">
 		<?php
 		the_content();
-        if ( function_exists ( 'get_field' ) ) {
-            if ( get_field( 'physical_address' ) ) {
-                echo '<p>';
-                the_field( 'physical_address' );
-                echo '</p>'; 
-            }
-            if ( get_field( 'email' ) ) {
-                echo '<p>';
-                the_field( 'email' );
-                echo '</p>';
-            }
-        } 
+        
 		wp_link_pages(
 			array(
 				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'fwd' ),
 				'after'  => '</div>',
 			)
 		);
+
+        //ACFs for the Contact page
+        if ( function_exists ( 'get_field' ) ) {
+            if ( get_field( 'physical_address' ) ) {
+                the_field( 'physical_address' );
+            }
+            if ( get_field( 'email' ) ) {
+                $email  = get_field( 'email' );
+                $mailto = 'mailto:' . $email;
+                ?>
+                <p><a href="<?php echo esc_url( $mailto ); ?> "><?php echo esc_html( $email ); ?></a></p>
+                <?php
+            }
+        } 
 		?>
 	</div><!-- .entry-content -->
 

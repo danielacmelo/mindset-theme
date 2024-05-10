@@ -24,28 +24,28 @@ get_header();
 
             <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-            <header class="entry-header">
-                <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
-            </header>
+                <header class="entry-header">
+                    <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+                </header>
 
-            <div class="entry-content">
-                <?php 
-                if ( function_exists ( 'get_field' ) ) {
-                    if ( get_field( 'test_intro' ) ) {
-                        the_field( 'test_intro' );
-                    }
-                    if ( get_field( 'test_heading' ) ) {
-                        echo '<h2>' . esc_html( get_field( 'test_heading' ) ) . '</h2>';
-                    }   
-                    if ( get_field( 'test_image' ) ) {
-                        echo wp_get_attachment_image( get_field( 'test_image' ), 'medium', '', array( 'class' => 'alignleft' ));
-                    }
-                    if ( get_field( 'test_text' ) ) {
-                        the_field( 'test_text' );
-                    }
-                } 
-                ?>
-            </div>
+                <div class="entry-content">
+                    <?php 
+                    if ( function_exists ( 'get_field' ) ) {
+                        if ( get_field( 'test_intro' ) ) {
+                            the_field( 'test_intro' );
+                        }
+                        if ( get_field( 'test_heading' ) ) {
+                            echo '<h2>' . esc_html( get_field( 'test_heading' ) ) . '</h2>';
+                        }   
+                        if ( get_field( 'test_image' ) ) {
+                            echo wp_get_attachment_image( get_field( 'test_image' ), 'medium', '', array( 'class' => 'alignleft' ));
+                        }
+                        if ( get_field( 'test_text' ) ) {
+                            the_field( 'test_text' );
+                        }
+                    } 
+                    ?>
+                </div>
 
             </article>
 

@@ -201,7 +201,6 @@ require get_template_directory() . '/inc/customizer.php';
  */
 require get_template_directory() . '/inc/cpt-taxonomy.php';
 
-
 /**
  * Load Jetpack compatibility file.
  */
