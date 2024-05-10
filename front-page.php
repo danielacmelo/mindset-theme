@@ -34,25 +34,26 @@ get_header();
                 <h2>Featured Works</h2>
             <?php
             $args = array(
-                'post_type' => 'fwd_work',
-                'posts_per_page' => 4
+                'post_type'      => 'fwd-work',
+                'posts_per_page' => 4,
             );
             $query = new WP_Query( $args );
-            if ( $query -> have_posts() ) {
-                while ( $query -> have_posts() ) {
-                    $query -> the_post();
+
+            if ( $query->have_posts() ) {
+                while( $query->have_posts() ) {
+                    $query->the_post(); 
                     ?>
                     <article>
-                        <a href="<?php the_permalink(); ?>">                   
-                        <?php the_post_thumbnail( 'medium'); ?> 
-                        <h3><?php the_title(); ?></h3> 
+                        <a href="<?php the_permalink(); ?>">
+                            <h2><?php the_title(); ?></h2>
+                            <?php the_post_thumbnail('medium'); ?>
                         </a>
                     </article>
                     <?php
                 }
-             wp_reset_postdata();             
-            }
-            ?>	
+                wp_reset_postdata();
+            } 
+            ?>
             </section>
 
             <section class="home-work"></section>
