@@ -89,6 +89,54 @@ function fwd_register_custom_post_types() {
 
     register_post_type( 'fwd-testimonial', $args );
 
+
+    // Register Job Posting Custom Post Type
+    $labels = array(
+        'name'                  => _x( 'Job Postings', 'post type general name' ),
+        'singular_name'         => _x( 'Job Posting', 'post type singular name' ),
+        'menu_name'             => _x( 'Job Postings', 'admin menu' ),
+        'name_admin_bar'        => _x( 'Job Posting', 'add new on admin bar' ),
+        'add_new'               => _x( 'Add New', 'service'  ),
+        'add_new_item'          => __( 'Add New Job Posting'  ),
+        'new_item'              => __( 'New Job Posting' ),
+        'edit_item'             => __( 'Edit Job Posting' ),
+        'view_item'             => __( 'View Job Posting' ),
+        'all_items'             => __( 'All Job Postings'  ),
+        'search_items'          => __( 'Search Job Postings' ),
+        'parent_item_colon'     => __( 'Parent Job Postings:' ),
+        'not_found'             => __( 'No Job Postings found.' ),
+        'not_found_in_trash'    => __( 'No Job Postings found in Trash.' ),
+        'insert_into_item'      => __( 'Insert into Job Posting'),
+        'uploaded_to_this_item' => __( 'Uploaded to this Job Posting'),
+    );
+    $args = array(
+        'labels'             => $labels,
+        'public'             => true,
+        'publicly_queryable' => true,
+        'show_ui'            => true,
+        'show_in_menu'       => true,
+        'show_in_rest'       => true,
+        'query_var'          => true,
+        'rewrite'            => array( 'slug' => 'careers' ),
+        'capability_type'    => 'post',
+        'has_archive'        => true,
+        'hierarchical'       => false,
+        'menu_position'      => 21,
+        'menu_icon'          => 'dashicons-megaphone',
+        'supports'           => array( 'title', 'editor' ),
+        'template'           => array(
+            array( 'core/heading', array( 'level' => 3, 'content' => 'Role', ) ),
+            array( 'core/paragraph', array( 'placeholder' => 'Describe the role...' ) ),
+            array( 'core/heading', array( 'level' => 3, 'content' => 'Requirements' ) ),
+            array( 'core/list' ),
+            array( 'core/heading', array( 'level' => 3, 'content' => 'Location' ) ),
+            array( 'core/paragraph' ),
+            array( 'core/heading', array( 'level' => 3, 'content' => 'How to Apply' ) ),
+            array( 'core/paragraph' ),
+        )
+    );
+    register_post_type( 'fwd-job-posting', $args );
+
 }
 add_action( 'init', 'fwd_register_custom_post_types' );
 
