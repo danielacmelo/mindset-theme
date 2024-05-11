@@ -45,8 +45,8 @@ get_header();
                     ?>
                     <article>
                         <a href="<?php the_permalink(); ?>">
-                            <h2><?php the_title(); ?></h2>
                             <?php the_post_thumbnail('medium'); ?>
+                            <h3><?php the_title(); ?></h3>
                         </a>
                     </article>
                     <?php
