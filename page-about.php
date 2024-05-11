@@ -24,13 +24,13 @@ get_header();
 			get_template_part( 'template-parts/content', 'page' );
 
 			$args = array(
-                'post_type' => 'fwd_testimonial',
+                'post_type'      => 'fwd-testimonial',
                 'posts_per_page' => -1
             );
             $query = new WP_Query( $args );
-            if ( $query -> have_posts() ) {
+            if ( $query -> have_posts() ){
             echo '<section><h2>Testimonials</h2>';
-                while ( $query -> have_post() ) {
+                while ( $query -> have_posts() ) {
                     $query -> the_post();
                     the_content();
                 }
