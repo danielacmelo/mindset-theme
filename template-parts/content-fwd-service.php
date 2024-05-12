@@ -30,6 +30,8 @@
         $args = array(
             'post_type'      => 'fwd-service',
             'posts_per_page' => -4,
+            'orderby'        => 'title',
+            'order'          => 'ASC'
         );
         $query = new WP_Query( $args );
 
