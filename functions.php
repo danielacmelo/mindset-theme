@@ -258,4 +258,3 @@ function fwd_change_title_text( $title ){
 }   
 
 add_filter( 'enter_title_here', 'fwd_change_title_text' );
-
