@@ -238,3 +238,15 @@ function fwd_post_filter( $use_block_editor, $post ) {
     }
 }
 add_filter( 'use_block_editor_for_post', 'fwd_post_filter', 10, 2 );
+
+// Change placeholder CPT Title 
+function fwd_change_title_text( $title ){
+    $screen = get_current_screen();
+    if  ( 'fwd-service' == $screen->post_type ) {
+        $title = 'Enter Service Name';
+    }
+    return $title;
+}   
+
+add_filter( 'enter_title_here', 'fwd_change_title_text' );
+
