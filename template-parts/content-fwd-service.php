@@ -20,13 +20,28 @@
 		<?php
 		the_content();
         
-		wp_link_pages(
-			array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'fwd' ),
-				'after'  => '</div>',
-			)
-		);
+        // Display  Nav Services
+        $args = array(
+            'post_type'      => 'fwd-service',
+            'posts_per_page' => -1,
+        );
 
+        $query = new WP_Query( $args );
+
+        if ( $query->have_posts() ) {
+            echo "<nav class='service-links'>";
+            while( $query->have_posts() ) {
+                $query->the_post(); 
+                $id = get_the_ID();
+                ?>
+                <a href="#<?php echo $id; ?>"><?php the_title(); ?></a>
+                <?php
+            }
+            wp_reset_postdata();
+            echo "</nav>";
+        }    
+
+        // Display Services
         $args = array(
             'post_type'      => 'fwd-service',
             'posts_per_page' => -4,
@@ -38,10 +53,10 @@
         if ( $query->have_posts() ) {
             while( $query->have_posts() ) {
                 $query->the_post(); 
+                $id = get_the_ID(); 
                 ?>
-                <h2><?php the_title(); ?></h2>
+                <h2 id="<?php echo $id ?>"><?php the_title(); ?></h2>
                 <?php
-
                 if ( function_exists( 'get_field' ) ) {
                     if ( get_field( 'service' ) ) {
                         the_field( 'service' );
@@ -51,8 +66,14 @@
             wp_reset_postdata();
         }    
 
+        wp_link_pages(
+			array(
+				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'fwd' ),
+				'after'  => '</div>',
+			)
+		);
 
-		?>
+		        ?>
 	</div><!-- .entry-content -->
 
 	<footer class="entry-footer">
