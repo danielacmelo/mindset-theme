@@ -181,7 +181,7 @@ function fwd_register_custom_post_types() {
             'hierarchical'       => false,
             'menu_position'      => 22,
             'menu_icon'          => 'dashicons-archive',
-            'supports'           => array( 'title' ),
+            'supports'           => array( 'title' , 'custom-fields', ),
         );
         register_post_type( 'fwd-service', $args );
 
