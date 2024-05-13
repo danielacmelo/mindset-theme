@@ -34,7 +34,14 @@ get_header();
             <?php
             $args = array(
                 'post_type'      => 'fwd-work',
-                'posts_per_page' => 4 
+                'posts_per_page' => 4,
+                "tax_query" => array(
+                    array(
+                        "taxonomy" => "fwd-featured",
+                        "field" => "slug",
+                        "terms" => "front-page"
+                    )
+                )
             );
             
             $query = new WP_Query( $args );

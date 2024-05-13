@@ -89,7 +89,6 @@ function fwd_register_custom_post_types() {
 
     register_post_type( 'fwd-testimonial', $args );
 
-
     // Register Job Posting Custom Post Type
     $labels = array(
         'name'                  => _x( 'Job Postings', 'post type general name' ),
@@ -188,9 +187,71 @@ function fwd_register_custom_post_types() {
 }
 add_action( 'init', 'fwd_register_custom_post_types' );
 
+// Register Custom Taxonomies
+
+function fwd_register_taxonomies() {
+    // Add Work Category taxonomy
+    $labels = array(
+        'name'              => _x( 'Work Categories', 'taxonomy general name' ),
+        'singular_name'     => _x( 'Work Category', 'taxonomy singular name' ),
+        'search_items'      => __( 'Search Work Categories' ),
+        'all_items'         => __( 'All Work Category' ),
+        'parent_item'       => __( 'Parent Work Category' ),
+        'parent_item_colon' => __( 'Parent Work Category:' ),
+        'edit_item'         => __( 'Edit Work Category' ),
+        'view_item'         => __( 'Vview Work Category' ),
+        'update_item'       => __( 'Update Work Category' ),
+        'add_new_item'      => __( 'Add New Work Category' ),
+        'new_item_name'     => __( 'New Work Category Name' ),
+        'menu_name'         => __( 'Work Category' ),
+    );
+    $args = array(
+        'hierarchical'      => true,
+        'labels'            => $labels,
+        'show_ui'           => true,
+        'show_in_menu'      => true,
+        'show_in_nav_menu'  => true,
+        'show_in_rest'      => true,
+        'show_admin_column' => true,
+        'query_var'         => true,
+        'rewrite'           => array( 'slug' => 'work-categories' ),
+    );
+    register_taxonomy( 'fwd-work-category', array( 'fwd-work' ), $args );
+
+    // Add Featured taxonomy
+    $labels = array(
+        'name'              => _x( 'Featured', 'taxonomy general name' ),
+        'singular_name'     => _x( 'Featured', 'taxonomy singular name' ),
+        'search_items'      => __( 'Search Featured' ),
+        'all_items'         => __( 'All Featured' ),
+        'parent_item'       => __( 'Parent Featured' ),
+        'parent_item_colon' => __( 'Parent Featured:' ),
+        'edit_item'         => __( 'Edit Featured' ),
+        'update_item'       => __( 'Update Featured' ),
+        'add_new_item'      => __( 'Add New Featured' ),
+        'new_item_name'     => __( 'New Work Featured' ),
+        'menu_name'         => __( 'Featured' ),
+    );
+
+    $args = array(
+        'hierarchical'      => true,
+        'labels'            => $labels,
+        'show_ui'           => true,
+        'show_admin_column' => true,
+        'show_in_rest'      => true,
+        'query_var'         => true,
+        'rewrite'           => array( 'slug' => 'featured' ),
+    );
+
+    register_taxonomy( 'fwd-featured', array( 'fwd-work' ), $args );
+
+}
+add_action( 'init', 'fwd_register_taxonomies');
+
 //This flushes the permalinks when switching themes
 function fwd_rewrite_flush() {
     fwd_register_custom_post_types();
+    fwd_register_taxonomies();
     flush_rewrite_rules();
 }
 add_action( 'after_switch_theme', 'fwd_rewrite_flush' );
