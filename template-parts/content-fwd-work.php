@@ -25,16 +25,6 @@
 	<div class="entry-content">
 		<?php
         the_content();
-   
-		wp_link_pages(
-			array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'fwd' ),
-				'after'  => '</div>',
-			)
-		);
+
 		?>
 	</div><!-- .entry-content -->
-
-<?php
-get_footer();
-get_sidebar();

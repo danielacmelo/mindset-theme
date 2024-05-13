@@ -31,5 +31,4 @@ get_header();
 	</main><!-- #primary -->
 
 <?php
-
 get_footer();
