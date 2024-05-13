@@ -45,10 +45,13 @@ get_header();
                         echo "<nav class='service-links'>";
                         while( $query->have_posts() ) {
                             $query->the_post(); 
-                            $id = get_the_ID();
-                            ?>
-                            <a href="#<?php echo $id; ?>"><?php the_title(); ?></a>
-                            <?php
+                            /**$id = get_the_ID();
+                            *?>
+                            *<a href="#<?php echo esc_attr( $id ) ?>"><?php the_title(); ?></a>
+                            *<?php
+                            */
+                            echo '<a href="#'. esc_attr( get_the_ID() ) .'">'. esc_html( get_the_title() ) .'</a>';
+                            
                         }
                         wp_reset_postdata();
                         echo "</nav>";
@@ -66,10 +69,12 @@ get_header();
                     if ( $query->have_posts() ) {
                         while( $query->have_posts() ) {
                             $query->the_post(); 
-                            $id = get_the_ID(); 
-                            ?>
-                            <h2 id="<?php echo $id ?>"><?php the_title(); ?></h2>
-                            <?php
+                            /** $id = get_the_ID(); 
+                            * ?>
+                            * <h2 id="<?php echo esc_attr( $id ) ?>"><?php the_title(); ?></h2>
+                            * <?php
+                            */ 
+                            echo '<h2 id="'. esc_attr( get_the_ID() ) .'">'. esc_html( get_the_title() ) .'</h2>';
                             if ( function_exists( 'get_field' ) ) {
                                 if ( get_field( 'service' ) ) {
                                     the_field( 'service' );
