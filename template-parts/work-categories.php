@@ -9,11 +9,7 @@
             <h2><?php esc_html_e( 'See Our Work', 'fwd' ); ?></h2>
             <ul>
                 <?php foreach ( $terms as $term ) : ?>
-                    <li>
-                        <a href="<?php echo esc_url( get_term_link( $term ) ); ?>">
-                            <?php echo esc_html( $term->name ); ?>
-                        </a>
-                    </li>
+                    <li><a href="<?php echo esc_url( get_term_link( $term ) ); ?>"><?php echo esc_html( $term->name ); ?></a></li>
                 <?php endforeach; ?>
             </ul>    
         </section>  

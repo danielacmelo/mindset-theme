@@ -92,6 +92,9 @@ get_header();
             
                             ?>
                 </div><!-- .entry-content --> 
+
+                <?php get_template_part( 'template-parts/work-categories' ); ?>
+
             </article>      
 
         <?php endwhile; // End of the loop.?>

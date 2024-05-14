@@ -34,7 +34,6 @@ get_header();
                     </a>
                     <p><?php the_excerpt(); ?></p>
                 </article>    
-
                 <?php
 			endwhile;
 
