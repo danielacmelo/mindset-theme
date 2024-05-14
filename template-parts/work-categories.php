@@ -2,7 +2,8 @@
     $terms = get_terms( 
         array(
             'taxonomy' => 'fwd-work-category',
-    ) );
+    )
+ );
     if ( $terms && ! is_wp_error( $terms ) ) :
         ?>
         <section>

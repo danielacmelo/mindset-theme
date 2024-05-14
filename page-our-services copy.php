@@ -33,7 +33,7 @@ get_header();
                     <?php
                     the_content();
 
-
+                    
                     // Display  Nav Services
                     $args = array(
                         'post_type'      => 'fwd-service',
@@ -51,50 +51,34 @@ get_header();
                         }
                         wp_reset_postdata();
                         echo "</nav>";
-                    }   
-                    
+                    }    
+            
                     // Display Services
-
-
-                    $terms = get_terms( 
-                        array(
-                            'taxonomy' => 'fwd-service-category',
-                        ) 
+                    $args = array(
+                        'post_type'      => 'fwd-service',
+                        'posts_per_page' => -4,
+                        'orderby'        => 'title',
+                        'order'          => 'ASC'
                     );
-                    if ( $terms && ! is_wp_error( $terms ) ) {
-                        foreach ( $terms as $term ) {
-                            $args = array(
-                                'post_type'      => 'fwd-service',
-                                'posts_per_page' => -4,
-                                'orderby'        => 'title',
-                                'order'          => 'ASC',
-                                'tax_query'      => array(
-                                    array(
-                                        'taxonomy' => 'fwd-service-category',
-                                        'field'    => 'slug',
-                                        'terms'    => $term->slug,
-                                    )
-                                )
-                            );
-                            $query = new WP_Query( $args );
-                    
-                            if ( $query->have_posts() ) {
-                                echo '<h2>' . esc_html( $term->name ) . '</h2>';
-                                while( $query->have_posts() ) {
-                                    $query->the_post(); 
-                                    if ( function_exists( 'get_field' ) ) {
-                                        echo '<h3 id="'. esc_attr( get_the_ID() ) .'">'. esc_html( get_the_title() ) .'</h3>';
-                                        if ( get_field( 'service' ) ) {
-                                            the_field( 'service' );
-                                        }
-                                      
-                                    }
+                    $query = new WP_Query( $args );
+            
+                    if ( $query->have_posts() ) {
+                        while( $query->have_posts() ) {
+                            $query->the_post(); 
+                            /** $id = get_the_ID(); 
+                            * ?>
+                            * <h2 id="<?php echo esc_attr( $id ) ?>"><?php the_title(); ?></h2>
+                            * <?php
+                            */ 
+                            echo '<h2 id="'. esc_attr( get_the_ID() ) .'">'. esc_html( get_the_title() ) .'</h2>';
+                            if ( function_exists( 'get_field' ) ) {
+                                if ( get_field( 'service' ) ) {
+                                    the_field( 'service' );
                                 }
-                                wp_reset_postdata();
-                            }    
+                            }
                         }
-                    }
-                
+                        wp_reset_postdata();
+                    }    
             
                     wp_link_pages(
                         array(
