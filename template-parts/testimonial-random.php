@@ -1,7 +1,4 @@
 <?php   
-while ( have_posts() ) :
-    the_post();
-
 $args = array(
                 'post_type'      => 'fwd-testimonial',
                 'orderby'        => 'rand',
@@ -17,4 +14,3 @@ $args = array(
                 wp_reset_postdata();
             echo '</section>';    
             }
-endwhile; 

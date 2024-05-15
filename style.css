@@ -406,7 +406,7 @@ select,
 optgroup,
 textarea {
 	color: #404040;
-	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+	font-family: "Open Sans", sans-serif;
 	font-size: 1rem;
 	line-height: 1.5;
 }
@@ -721,7 +721,8 @@ svg path {
 	}
 
 	.no-sidebar .site,
-	.page-template-full-width .site {
+	.page-template-full-width .site,
+    .page-id-7 .site {
 		grid-template-columns: 1fr minmax(0, 1000px) 1fr;
 		grid-template-areas:
 			"header header header"
@@ -978,6 +979,16 @@ svg path {
 	grid-template-columns: 1fr 1fr;
 	grid-gap: 2em;
 }
+
+/* About Page */
+.page-id-15 main .wp-block-pullquote {
+    border: none;
+    padding: 0;
+    text-align: left;
+    font-size: 1rem;
+}
+
+
 
 /* Footer
 --------------------------------------------- */

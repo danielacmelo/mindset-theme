@@ -22,6 +22,6 @@ if ( ! is_active_sidebar( 'sidebar-1' )  || ! is_active_sidebar( 'sidebar-2' ) )
     ?>
     <?php get_template_part( 'template-parts/work-categories' ); ?>
 
-    <?php get_template_part( 'template-parts/random-testimonial' ); ?>
+    <?php get_template_part( 'template-parts/testimonial-random' ); ?>
 
 </aside><!-- #secondary -->

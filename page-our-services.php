@@ -33,11 +33,12 @@ get_header();
                     <?php
                     the_content();
 
-
                     // Display  Nav Services
                     $args = array(
                         'post_type'      => 'fwd-service',
                         'posts_per_page' => -1,
+                        'orderby'        => 'title',
+                        'order'          => 'ASC',
                     );
             
                     $query = new WP_Query( $args );
@@ -46,31 +47,29 @@ get_header();
                         echo "<nav class='service-links'>";
                         while( $query->have_posts() ) {
                             $query->the_post(); 
-                            echo '<a href="#'. esc_attr( get_the_ID() ) .'">'. esc_html( get_the_title() ) .'</a>';
-                            
+                            echo '<a href="#'. esc_attr( get_the_ID() ) .'">'. esc_html( get_the_title() ) .'</a>';   
                         }
                         wp_reset_postdata();
                         echo "</nav>";
                     }   
                     
                     // Display Services
-
-
+                    $taxonomy = 'fwd-service-category';
                     $terms = get_terms( 
                         array(
-                            'taxonomy' => 'fwd-service-category',
+                            'taxonomy' => $taxonomy
                         ) 
                     );
                     if ( $terms && ! is_wp_error( $terms ) ) {
                         foreach ( $terms as $term ) {
                             $args = array(
                                 'post_type'      => 'fwd-service',
-                                'posts_per_page' => -4,
+                                'posts_per_page' => -1,
                                 'orderby'        => 'title',
                                 'order'          => 'ASC',
                                 'tax_query'      => array(
                                     array(
-                                        'taxonomy' => 'fwd-service-category',
+                                        'taxonomy' => $taxonomy,
                                         'field'    => 'slug',
                                         'terms'    => $term->slug,
                                     )
@@ -87,14 +86,12 @@ get_header();
                                         if ( get_field( 'service' ) ) {
                                             the_field( 'service' );
                                         }
-                                      
                                     }
                                 }
                                 wp_reset_postdata();
                             }    
                         }
-                    }
-                
+                    }   
             
                     wp_link_pages(
                         array(
@@ -102,7 +99,6 @@ get_header();
                             'after'  => '</div>',
                         )
                     );
-            
                             ?>
                 </div><!-- .entry-content --> 
 
