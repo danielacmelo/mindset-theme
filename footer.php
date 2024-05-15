@@ -18,6 +18,7 @@
                 if ( ! is_page('contact') ) {
                     if ( get_field('physical_address', 17) ) {
                     echo '<div class="footer-contact-left">';
+                        get_template_part( 'images/location' );
                         the_field('physical_address', 17);
                     echo '</div>';
                 }
@@ -26,6 +27,7 @@
                     $mailto = 'mailto:' . $email;
                     ?>
                     <div class="footer-contact-right">
+                        <?php get_template_part( 'images/email' ); ?> 
                         <p><a href="<?php echo esc_url( $mailto ); ?> "><?php echo esc_html( $email ); ?></a></p>
                     </div>
                     <?php
