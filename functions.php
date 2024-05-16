@@ -172,7 +172,7 @@ add_action( 'widgets_init', 'fwd_widgets_init' );
 function fwd_scripts() {
     wp_enqueue_style( 
         'fwd-googlefonts', //unique handle
-        'https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:wght@400;500&display=swap', // url
+        'https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap', // url
         array(), // dependencies
         null // version, must be set to null for Google Fonts to load multiple font families 
     );

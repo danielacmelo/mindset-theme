@@ -417,6 +417,7 @@ h3,
 h4,
 h5,
 h6 {
+    font-family: "Source Sans 3", sans-serif;
 	clear: both;
 	margin: .75em 0 .25em;
 }
