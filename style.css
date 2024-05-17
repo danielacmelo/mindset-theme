@@ -216,6 +216,8 @@ textarea {
 	margin: 0;
 }
 
+
+
 /**
  * Show the overflow in IE.
  * 1. Show the overflow in Edge.
@@ -417,7 +419,7 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: "Source Sans 3", sans-serif;
+    font-family: "PT Serif", serif;
 	clear: both;
 	margin: .75em 0 .25em;
 }
@@ -981,6 +983,96 @@ svg path {
 	grid-gap: 2em;
 }
 
+
+/* Home Page */
+.home-work article {
+	text-align: center;
+}
+.home-blog {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+.home-blog h2 {
+	width: 100%;
+}
+.home-blog article {
+	text-align: center;
+	margin: 1em 0 1em;
+	max-width: 450px;
+	width: 100%;
+}
+.home-blog h3 {
+	margin-top: .25em;
+}
+@media screen and (min-width: 50em) {
+	.home-work {
+		display: flex;
+		flex-wrap: wrap;
+	}
+	.home-work h2 {
+		width: 100%;
+	}
+	.home-work article {
+		max-width: 25%;
+	}
+	.home-left,
+	.home-right {
+		display: inline-block;
+		width: 45%;
+		vertical-align: top;
+	}
+	.home-left {
+		margin-right: 8%;
+	}
+}
+
+
+
+/* Work Archive */
+@media screen and (min-width: 50em) {
+	.work-section {
+		display: flex;
+		flex-wrap: wrap;
+	}
+	.work-item {
+		width: 33.33%;
+	}
+	.work-item p {
+		padding: 0 1rem;
+	}
+	.work-section h2 {
+		width: 100%;
+	}
+} 
+
+
+
+/* Our Services Page */ 
+
+.service-links {
+	border: 6px double #fff200;
+	background-color: #f9f9f9;
+	padding: 0 2em;
+	margin: 1em 0;
+	text-align: center;
+}
+.service-links a {
+	display: block;
+	padding: 1rem;
+}
+@media screen and (min-width: 50em) {
+	.service-links {
+		display: flex;
+		justify-content: space-between;
+		text-align: left;
+	}
+	.service-links a {
+		display: inline-block;
+	}
+}
+
+
 /* About Page */
 .page-id-15 main .wp-block-pullquote {
     border: none;
@@ -988,6 +1080,7 @@ svg path {
     text-align: left;
     font-size: 1rem;
 }
+
 
 
 
@@ -1140,9 +1233,27 @@ svg path {
 	max-width: 100%;
 }
 
+.widget-area h2,
 .widget-title {
 	font-size: 1.25rem;
 }
+
+.widget .wp-block-latest-posts__list {
+	margin: 0;
+}
+
+.widget-area .wp-block-pullquote {
+	border: none;
+	padding: 0;
+	text-align: left;
+	font-size: 1rem;
+}
+
+.widget-area .wp-block-pullquote blockquote {
+	font-size: 1rem;
+	text-align: left;
+}
+
 
 /* Media
 --------------------------------------------- */

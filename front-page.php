@@ -142,6 +142,7 @@ get_header();
                 );
                 $query = new WP_Query( $args );
                 if ( $query -> have_posts() ):
+                    echo '<section><h2>Testimonials</h2>';
                     ?>
                     <div class="swiper">
                         <div class="swiper-wrapper">
