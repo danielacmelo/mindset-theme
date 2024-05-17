@@ -1049,6 +1049,19 @@ svg path {
 	margin-top: 2rem;
 }
 
+.scroll-top {
+	background: transparent;
+	border: none;
+	padding: 1rem;
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	cursor: pointer;
+	transition: all ease 0.3s;
+	opacity: 0;
+	color: #fff200;
+}
+
 @media screen and (min-width: 43.75em) {
 
 	.footer-menus ul {

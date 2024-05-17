@@ -207,6 +207,13 @@ function fwd_scripts() {
             _S_VERSION,
             array( 'strategy' => 'defer' )
         );
+        wp_enqueue_script(
+            'scroll-top',
+            get_template_directory_uri() . '/js/scroll-top.js',
+            array( ),
+            _S_VERSION,
+            array( 'strategy' => 'defer' )
+        );
     }
 
 }
