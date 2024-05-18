@@ -1325,7 +1325,7 @@ body:not(.single) .post:last-of-type {
 /* Make sure logo link wraps around logo image. */
 .custom-logo-link {
 	display: inline-block;
-   
+    width: 12.5rem;
 }
 
 /* Captions
