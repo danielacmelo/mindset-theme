@@ -1,0 +1,96 @@
+/*--------------------------------------------------------------
+REST API EXAMPLE
+--------------------------------------------------------------*/
+.blog-posts {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.blog-posts h2,
+.blog-posts .all-posts {
+    width: 100%;
+}
+.blog-posts .open-modal {
+    position: relative;
+    margin: 1rem .625rem;
+}
+.blog-posts h3 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(255, 255, 255, .8);
+    padding: 1rem;
+    margin: 0;
+}
+.blog-posts img {
+    display: block;
+}
+.modal-window {
+    opacity: 0; 
+    position: fixed;
+    top: 50%;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    transform: translateY(-50%);
+    width: 96%;
+    max-width: 900px;
+    max-height: 90vh;
+    margin: 0 auto;
+    padding: 2.5rem;
+    background-color: #fff;
+    overflow-y: auto;
+}
+#dimmer {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    opacity: 0;
+    transition: opacity .5s ease;
+}
+.close-modal {
+    position: absolute;
+    top: .5rem;
+    right: .5rem;
+    padding: 0;
+    background: none;
+    border: none;
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+    cursor: pointer;
+}
+.close-modal:hover,
+.close-modal:focus {
+    border: none;
+    box-shadow: none;
+}
+.close-modal,
+.close-modal svg {
+    width: 2rem;
+    height: 2rem;
+}
+.close-modal path {
+    fill: #aaa;
+    -webkit-transition: fill ease 0.3s;
+    transition: fill ease 0.3s;
+}
+.close-modal:hover path,
+.close-modal:focus path {
+    fill: #000;
+}
+#dimmer.fade {
+    opacity: 1;
+    z-index: 1000;
+}
+.modal-window.fade {
+    opacity: 1;
+    z-index: 1100;
+}
