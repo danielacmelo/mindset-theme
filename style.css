@@ -1132,6 +1132,17 @@ body:not(.single) .post:last-of-type {
 	padding-bottom: 0;
 }
 
+.info-box {
+	border: 6px double #fff200;
+	background-color: #f9f9f9;
+	padding: 1em 2em;
+	margin: 1em 0;
+}
+
+.info-title {
+	margin-top: 0;
+}
+
 
 /* Footer
 --------------------------------------------- */
